@@ -147,8 +147,9 @@ class ChatBot
             }
 
             $priceVND = number_format($tour['price'] * 23000, 0, ',', '.');
+            $tourLink = "/tour-single.php?id=" . $tour['id'];
 
-            $response = "🎯 {$tour['name']} | {$tour['location']}\n\n"
+            $response = "🎯 <a href='{$tourLink}'>{$tour['name']}</a> | {$tour['location']}\n\n"
                 . "⏱️ {$tour['duration']} | 💰 {$priceVND} VNĐ\n"
                 . "⭐ {$tour['rating']}/5\n\n"
                 . "📝 {$tour['description']}\n\n";
@@ -190,7 +191,8 @@ class ChatBot
 
             foreach ($tours as $tour) {
                 $priceVND = number_format($tour['price'] * 23000, 0, ',', '.');
-                $response .= "🌟 {$tour['name']}\n"
+                $tourLink = "/tour-single.php?id=" . $tour['id'];
+                $response .= "🌟 <a href='{$tourLink}'>{$tour['name']}</a>\n"
                     . "📍 {$tour['location']}\n"
                     . "⏱️ {$tour['duration']} | 💰 {$priceVND} VNĐ\n"
                     . "⭐ {$tour['rating']}/5\n"
@@ -198,7 +200,7 @@ class ChatBot
             }
 
             $response .= "💡 Để xem chi tiết tour nào, hãy nhắn: 'tư vấn tour [tên tour]'\n"
-                . "Ví dụ: tư vấn tour Paris Adventure";
+                . "Hoặc click vào tên tour để xem chi tiết";
 
             return $response;
         } catch (Exception $e) {

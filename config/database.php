@@ -1,7 +1,7 @@
 <?php
 // Database configuration
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'travel_db');
+define('DB_NAME', 'doan');
 define('DB_USER', 'root');  // Change this to your MySQL username
 define('DB_PASS', '');      // Change this to your MySQL password
 
